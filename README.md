@@ -66,3 +66,7 @@ as frame: <world>
 b. From the folder choose ‘Motion Planning’ as the display types and Press ‘OK’
 c. Wait for some time to see the robot (later, if you wish to see the arm motion the goto
 “planned path” and then click on “loop animation” and “show trail”.
+  
+ In the folder rqt_graphs you can see the rqt_graph of each scripts.
+ Also in the scripts of baxter_human_collaboration folder you have a file moveit_function_documentation.py 
+ that does nothing, but describe only the functions of moveit that we used
