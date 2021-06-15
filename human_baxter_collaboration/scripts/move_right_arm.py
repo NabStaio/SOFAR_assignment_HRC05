@@ -49,7 +49,7 @@ def move_right(cube):
     frame = cube
 
     
-    move_group = moveit_commander.MoveGroupCommander('right_arm')
+    move_groupr = moveit_commander.MoveGroupCommander('right_arm')
     #first field of baxter_msg to fill, the arm (string arm) 
     baxter_msg = BaxterTrajectory()
     baxter_msg.arm = 'right'
@@ -64,7 +64,7 @@ def move_right(cube):
     -1.2217304763960306, 0.0, 1.7278759594743864, 0.0, 0.7504915783575616, 0.0, 0.0, 0.0, 0.0, 0.0]
     moveit_robot_state = RobotState()
     moveit_robot_state.joint_state = joint_state
-    move_group.set_start_state(moveit_robot_state)
+    move_groupr.set_start_state(moveit_robot_state)
     
     #####################################################################################################
     # NOW GO FOR PLANNING STEPS:                                                                        #
@@ -90,16 +90,16 @@ def move_right(cube):
     pose_goal.position.y = my_data[frame].pose.position.y 
     pose_goal.position.z = my_data[frame].pose.position.z + 0.2
 
-    move_group.set_pose_target(pose_goal)
-    plan_overcube = move_group.plan()
-    move_group.execute(plan_overcube[1])
+    move_groupr.set_pose_target(pose_goal)
+    plan_overcube = move_groupr.plan()
+    move_groupr.execute(plan_overcube[1])
 
     joint_state = JointState()
-    joint_state.name = move_group.get_active_joints()
-    joint_state.position = move_group.get_current_joint_values()
+    joint_state.name = move_groupr.get_active_joints()
+    joint_state.position = move_groupr.get_current_joint_values()
     moveit_robot_state = RobotState()
     moveit_robot_state.joint_state = joint_state
-    move_group.set_start_state(moveit_robot_state)
+    move_groupr.set_start_state(moveit_robot_state)
     ################################################################
 
     #################_SECOND STEP PICK THE CUBE_#################
@@ -112,16 +112,16 @@ def move_right(cube):
     pose_goal.position.y = my_data[frame].pose.position.y 
     pose_goal.position.z = my_data[frame].pose.position.z - 0.01
 
-    move_group.set_pose_target(pose_goal)
-    plan_pick = move_group.plan()
-    move_group.execute(plan_pick[1])
+    move_groupr.set_pose_target(pose_goal)
+    plan_pick = move_groupr.plan()
+    move_groupr.execute(plan_pick[1])
 
     joint_state = JointState()
-    joint_state.name = move_group.get_active_joints()
-    joint_state.position = move_group.get_current_joint_values()
+    joint_state.name = move_groupr.get_active_joints()
+    joint_state.position = move_groupr.get_current_joint_values()
     moveit_robot_state = RobotState()
     moveit_robot_state.joint_state = joint_state
-    move_group.set_start_state(moveit_robot_state)
+    move_groupr.set_start_state(moveit_robot_state)
     ################################################################
 
     #################_THIRD STEP GO AGAIN OVER THE CUBE_#################
@@ -134,16 +134,16 @@ def move_right(cube):
     pose_goal.position.y = my_data[frame].pose.position.y 
     pose_goal.position.z = my_data[frame].pose.position.z + 0.2
         
-    move_group.set_pose_target(pose_goal)
-    plan_cubeup = move_group.plan()
-    move_group.execute(plan_cubeup[1])
+    move_groupr.set_pose_target(pose_goal)
+    plan_cubeup = move_groupr.plan()
+    move_groupr.execute(plan_cubeup[1])
 
     joint_state = JointState()
-    joint_state.name = move_group.get_active_joints()
-    joint_state.position = move_group.get_current_joint_values()
+    joint_state.name = move_groupr.get_active_joints()
+    joint_state.position = move_groupr.get_current_joint_values()
     moveit_robot_state = RobotState()
     moveit_robot_state.joint_state = joint_state
-    move_group.set_start_state(moveit_robot_state)
+    move_groupr.set_start_state(moveit_robot_state)
     ################################################################
 
     #################_FOURTH STEP PLACE IN THE MIDDLE_#################
@@ -156,9 +156,9 @@ def move_right(cube):
     pose_goal.position.y = my_data[23].pose.position.y + 0.1
     pose_goal.position.z = my_data[23].pose.position.z + 0.1
         
-    move_group.set_pose_target(pose_goal)
-    plan_place = move_group.plan()
-    move_group.execute(plan_place[1])
+    move_groupr.set_pose_target(pose_goal)
+    plan_place = move_groupr.plan()
+    move_groupr.execute(plan_place[1])
 
     #The baxter returns in its initial position 
     joint_state = JointState()
@@ -168,7 +168,7 @@ def move_right(cube):
     -1.2217304763960306, 0.0, 1.7278759594743864, 0.0, 0.7504915783575616, 0.0, 0.0, 0.0, 0.0, 0.0]
     moveit_robot_state = RobotState()
     moveit_robot_state.joint_state = joint_state
-    move_group.set_start_state(moveit_robot_state)
+    move_groupr.set_start_state(moveit_robot_state)
     ################################################################
 
     #second field of baxter_msg to fill, and all the plans go inside it

@@ -32,7 +32,6 @@ catkin_package()
 catkin_install_python(PROGRAMS
   scripts/tf_publisher.py
   scripts/server_endpoint_hrc.py
-  scripts/listener.py
   scripts/move_right_arm.py
   scripts/move_left_arm.py
   scripts/moveC.py
